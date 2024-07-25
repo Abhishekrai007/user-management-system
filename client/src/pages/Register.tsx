@@ -20,7 +20,7 @@ const Register: React.FC = () => {
       });
       navigate("/login");
     } catch (error) {
-      console.error("Registration error:", error);
+      console.error("registration error:", error);
     }
   };
 

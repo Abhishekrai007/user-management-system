@@ -29,7 +29,7 @@ export const getUserById = async (req: Request, res: Response) => {
     }
     res.json(user);
   } catch (error) {
-    console.error("Error fetching user:", error);
+    console.error("error fetching user:", error);
     res.status(500).json({ message: "Error fetching user" });
   }
 };
@@ -67,7 +67,7 @@ export const deleteUser = async (req: Request, res: Response) => {
     }
     res.json({ message: "User deleted successfully" });
   } catch (error) {
-    console.error("Error deleting user:", error);
-    res.status(500).json({ message: "Error deleting user" });
+    console.error("error deleting user:", error);
+    res.status(500).json({ message: "error deleting user" });
   }
 };

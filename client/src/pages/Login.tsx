@@ -20,7 +20,7 @@ const Login: React.FC = () => {
       await login(token);
       navigate("/");
     } catch (error) {
-      console.error("Login error:", error);
+      console.error("login error:", error);
       alert(
         "Login failed: " + (error?.response?.data?.message || "Unknown error")
       );

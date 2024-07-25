@@ -21,8 +21,8 @@ app.use(
 
 mongoose
   .connect(process.env.MONGODB_URI as string)
-  .then(() => console.log("Connected to MongoDB"))
-  .catch((err) => console.error("MongoDB connection error:", err));
+  .then(() => console.log("connected to MongoDB"))
+  .catch((err) => console.error("mongdb connection error:", err));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);

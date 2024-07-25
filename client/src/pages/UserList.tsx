@@ -34,7 +34,7 @@ const UserList: React.FC = () => {
       });
       setUsers(response.data);
     } catch (error) {
-      console.error("Error fetching users:", error);
+      console.error("error fetching users:", error);
     }
   };
 
@@ -56,7 +56,7 @@ const UserList: React.FC = () => {
         });
         fetchUsers(); // Refresh the list after deletion
       } catch (error) {
-        console.error("Error deleting user:", error);
+        console.error("error deleting user:", error);
       }
     }
   };

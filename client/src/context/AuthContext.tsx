@@ -33,7 +33,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       });
       setUser(response.data);
     } catch (error) {
-      console.error("Error fetching user:", error);
+      console.error("error fetching user:", error);
       localStorage.removeItem("token");
       setUser(null);
     }

@@ -31,7 +31,7 @@ const UserProfile: React.FC = () => {
       );
       setProfileUser(response.data);
     } catch (error) {
-      console.error("Error fetching user profile:", error);
+      console.error("error fetching user profile:", error);
     }
   };
 
@@ -45,7 +45,7 @@ const UserProfile: React.FC = () => {
 
         window.location.href = "/users";
       } catch (error) {
-        console.error("Error deleting user:", error);
+        console.error("eror deleting user:", error);
       }
     }
   };

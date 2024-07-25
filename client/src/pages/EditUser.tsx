@@ -29,7 +29,7 @@ const EditUser: React.FC = () => {
       setEmail(userData.email);
       setRole(userData.role);
     } catch (error) {
-      console.error("Error fetching user:", error);
+      console.error("error fetching user:", error);
     }
   };
 
@@ -46,7 +46,7 @@ const EditUser: React.FC = () => {
       });
       navigate(`/profile/${id}`);
     } catch (error) {
-      console.error("Error updating user:", error);
+      console.error("error updating user:", error);
     }
   };
 
