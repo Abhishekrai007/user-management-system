@@ -18,13 +18,12 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-// Connect to MongoDB
+
 mongoose
   .connect(process.env.MONGODB_URI as string)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
-// Routes will be added here
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 

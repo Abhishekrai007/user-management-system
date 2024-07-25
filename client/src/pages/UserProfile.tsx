@@ -1,8 +1,8 @@
-// src/pages/UserProfile.tsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import Avatar from "../components/Avatar";
 
 interface User {
   _id: string;
@@ -42,7 +42,7 @@ const UserProfile: React.FC = () => {
         await axios.delete(`http://localhost:5000/api/users/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-        // Redirect to user list or home page after deletion
+
         window.location.href = "/users";
       } catch (error) {
         console.error("Error deleting user:", error);
@@ -55,17 +55,25 @@ const UserProfile: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className="user-profile">
       <h2>User Profile</h2>
-      <p>Username: {profileUser.username}</p>
-      <p>Email: {profileUser.email}</p>
-      <p>Role: {profileUser.role}</p>
-      {user && (user.role === "admin" || user.id === profileUser._id) && (
-        <Link to={`/edit-user/${profileUser._id}`}>Edit Profile</Link>
-      )}
-      {user && user.role === "admin" && (
-        <button onClick={handleDeleteUser}>Delete User</button>
-      )}
+      <Avatar
+        username={profileUser.username}
+        profilePicture={profileUser.profilePicture}
+      />
+      <div className="user-details">
+        <p>Username: {profileUser.username}</p>
+        <p>Email: {profileUser.email}</p>
+        <p>Role: {profileUser.role}</p>
+      </div>
+      <div className="user-actions">
+        {user && (user.role === "admin" || user.id === profileUser._id) && (
+          <Link to={`/edit-user/${profileUser._id}`}>Edit Profile</Link>
+        )}
+        {user && user.role === "admin" && (
+          <button onClick={handleDeleteUser}>Delete User</button>
+        )}
+      </div>
     </div>
   );
 };

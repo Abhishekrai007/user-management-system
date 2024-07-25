@@ -59,7 +59,7 @@ const EditUser: React.FC = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="edit-user-form" onSubmit={handleSubmit}>
       <input
         type="text"
         value={username}

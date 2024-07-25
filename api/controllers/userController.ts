@@ -3,7 +3,17 @@ import User, { IUser } from "../models/User";
 
 export const getUsers = async (req: Request, res: Response) => {
   try {
-    const users = await User.find().select("-password");
+    const { search } = req.query;
+    let query = {};
+    if (search) {
+      query = {
+        $or: [
+          { username: { $regex: search, $options: "i" } },
+          { email: { $regex: search, $options: "i" } },
+        ],
+      };
+    }
+    const users = await User.find(query).select("-password");
     res.json(users);
   } catch (error) {
     res.status(500).json({ message: "Error fetching users" });
@@ -57,6 +67,7 @@ export const deleteUser = async (req: Request, res: Response) => {
     }
     res.json({ message: "User deleted successfully" });
   } catch (error) {
+    console.error("Error deleting user:", error);
     res.status(500).json({ message: "Error deleting user" });
   }
 };

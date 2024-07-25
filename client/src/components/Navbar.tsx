@@ -1,5 +1,3 @@
-// src/components/Navbar.tsx
-import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
@@ -7,7 +5,7 @@ const Navbar: React.FC = () => {
   const { user, logout } = useAuth();
 
   return (
-    <nav>
+    <nav className="navbar">
       <ul>
         <li>
           <Link to="/">Home</Link>
